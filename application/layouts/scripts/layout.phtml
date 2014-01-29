@@ -1,11 +1,22 @@
 <?php echo $this->doctype(); ?>
+
 <html>
     <head>
-        <title><?php echo $this->title; ?></title>
+        <?php 
+            echo $this->headTitle($this->title); 
+            $this->headScript()->appendFile('//code.jquery.com/jquery.js');
+            echo $this->headScript()->appendFile('/js/bootstrap.min.js');
+            $this->headLink()->appendStylesheet('/css/bootstrap.min.css');
+            $this->headLink()->appendStylesheet('/css/main.css');
+            $this->headLink()->appendStylesheet('//fonts.googleapis.com/css?family=Hammersmith+One');
+            echo $this->headLink();
+        ?>
     </head>
 
     <body>
-        <?php echo $this->layout()->content; ?>
-    </body>
-    
+        <?php
+     		echo $this->render("_globalHeader.phtml") . "\n";
+     		echo $this->render("_globalBody.phtml") . "\n";
+     	?>
+    </body>    
 </html>

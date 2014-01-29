@@ -1,0 +1,17 @@
+<div id="mainSearch">
+	<?php
+
+		$form = new Zend_Form();
+		$form->setAction('#')
+			->setMethod('get');
+
+		$search = $form->createElement('text', 'search');
+		$search->setRequired(true);
+		$submit = $form->createElement('submit', 'enviar');
+
+		$form->addElement($search)
+			->addElement($submit);
+
+		echo $form;
+	?>
+</div>

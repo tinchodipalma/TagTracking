@@ -1,0 +1,29 @@
+<?php
+	
+	$menu = array(
+		'Primero' => 'index.php',
+		'Segundo' => 'index.php?q=2',
+		'Tercero' => 'index.php?q=3',
+		'Cuarto' => 'index.php?q=4'
+	);
+	
+?>
+<div id="globalHeader" class="navbar-header navbar-fixed-top" role="navigation">
+	<div class="centerHeader">
+		<div class="logo">
+			TagTrack
+		</div>
+		<div class="middleDiv">
+
+		</div>
+		<div class="navbarmenu">
+			<ul>
+				<?php 
+					foreach ($menu as $key => $value) {
+						echo "<li><a href='" . $value . "'>" . $key . "</a></li>";
+					}
+				?>
+			</ul>
+		</div>
+	</div>
+</div>

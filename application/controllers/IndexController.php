@@ -10,7 +10,11 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $this->view->assign(array('title' => "TagTrack"));
+    	$viewData = array(
+    		'title' => "TagTrack",
+    		'copyright' => "TagTrack &copy;"
+		);
+        $this->view->assign($viewData);
     }
 
 
