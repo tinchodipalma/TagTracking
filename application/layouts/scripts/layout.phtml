@@ -5,8 +5,17 @@
         <?php 
             echo $this->headTitle($this->title); 
             $this->headScript()->appendFile('//code.jquery.com/jquery.js');
+
+            if (isset($this->searchPlugin) && $this->searchPlugin === true) {
+                $this->headScript()->appendFile('/js/jquery.searchPlugin.js');
+            }
             echo $this->headScript()->appendFile('/js/bootstrap.min.js');
-            $this->headLink()->appendStylesheet('/css/bootstrap.min.css');
+
+
+            $this->headLink(array(
+                'rel'  => 'favicon',
+                'href' => '/images/favicon.ico',                
+            ))->appendStylesheet('/css/bootstrap.min.css');
             $this->headLink()->appendStylesheet('/css/main.css');
             $this->headLink()->appendStylesheet('//fonts.googleapis.com/css?family=Hammersmith+One');
             echo $this->headLink();

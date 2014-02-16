@@ -11,7 +11,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
 		$router = Zend_Controller_Front::getInstance()->getRouter();
 
-		$route = new Zend_Controller_Router_Route(
+		$routeSearch = new Zend_Controller_Router_Route(
 		    'search/:query',
 		    array(
 		        'controller' => 'search',
@@ -19,7 +19,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		    )
 		);
 
-		$router->addRoute('search', $route);
+		$routeApi = new Zend_Controller_Router_Route(
+		    'api/:query',
+		    array(
+		        'controller' => 'api',
+		        'action'     => 'index'
+		    )
+		);
+
+		$router->addRoute('search', $routeSearch);
+		$router->addRoute('api', $routeApi);
     }
 
 
