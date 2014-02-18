@@ -19,7 +19,7 @@
             .done(
                 function(data) {
                     console.log("SI");
-                    $this.displayStatuses($this, data);
+                    $this.displayStatuses('#search', data);
                 }
             )
             .fail(
@@ -33,18 +33,32 @@
 
     $.fn.displayStatuses = function (element, json) {
 
-            var generatedHtml = ""; 
+            var htmlCol1,
+                htmlCol2,
+                htmlDOM = ""; 
+
+            htmlDOM = "<div class='status'><div class='userPicture'><img style='width: 50px; height: 50px;' src='{USERPICTURE}'></div><div class='userName'>{USERNAME}</div><div class='message'>{MESSAGE}</div></div>";
 
             json = $.parseJSON(json);
 
+            var i = 1;
             $.each(json, 
                 function (index, value) {
-                    generatedHtml += "<div class='status'><div class='userPicture'><img src='" + value.user.picture + "'></div><div class='userName'>" + value.user.name + "</div><div class='message'>" + value.message + "</div></div>";
+                    if (i == 1) {
+                        htmlCol1 += "<div class='status'><div class='userPicture'><img style='width: 50px; height: 50px;' src='" + value.user.picture + "'></div><div class='userName'>" + value.user.name + "</div><div class='message'>" + value.message + "</div></div>";
+                        i++;
+                    } else {
+                        htmlCol2 += "<div class='status'><div class='userPicture'><img style='width: 50px; height: 50px;' src='" + value.user.picture + "'></div><div class='userName'>" + value.user.name + "</div><div class='message'>" + value.message + "</div></div>";
+                        i = 1;
+                    }
+
+
                 }
                 
             );
 
-            element.html(generatedHtml);
+            $(element + ' .col:nth-child(1)').html(htmlCol1);
+            $(element + ' .col:nth-child(2)').html(htmlCol2);
 
     };
 

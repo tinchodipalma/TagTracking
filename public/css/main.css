@@ -118,3 +118,19 @@ body {
 	border: 1px solid #7A7;
 	background: white;
 }
+
+#search {
+	margin: 0 auto 20px auto;
+	width: 98%;
+}
+
+#search .col {
+	width: 49%;
+	margin: 0 auto 0 1.5%;
+	display: inline-block;
+	min-height: 200px;
+}
+
+#search .col:first-child {
+	margin-left: 0;
+}
