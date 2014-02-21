@@ -1,8 +1,8 @@
 /* Main CSS Rules */
 body {
 	font-family: 'Hammersmith One', sans-serif;
-	background: url('../images/background/blurred-green.jpg') green;
-	background-size:  100%;
+	background: url('../images/background/blurred-green.jpg') center top no-repeat #000 fixed;
+	background-size: 100%;
 	padding-top: 50px;
 }
 
@@ -13,18 +13,19 @@ body {
 #globalHeader {
 	background: #000;
 	height: 50px;
-	box-shadow: 0 0 15px #111;
 	padding-top: 0;
+	box-shadow: 0 5px 5px #111;
 }
 
 #globalBody {
 	display: block;
 	position: relative;
-	min-height: 400px;
+	min-height: 200px;
 	width: 90%;
-	margin: 0 auto;
-	background: rgba(255, 255, 255, 0.2);
-	border: 1px solid rgba(200, 200, 200, 0.5);
+	margin: 0 auto 70px auto;
+	background: rgba(230, 230, 230, 0.4);
+	background: transparent;
+	border: 0px solid #333;
 	border-top: 0;
 	padding: 0;
 }
@@ -35,7 +36,7 @@ body {
 	top: auto;
 	left: 0;
 	right: 0;
-	border-top: 1px solid rgba(255, 255, 255, 0.4);;
+	border-top: 1px solid #333;
 	width: 98%;
 	margin: 0 auto;
 }
@@ -90,7 +91,7 @@ body {
 }
 
 .globalBodyFix {
-	padding-top: 50px;
+	padding-top: 30px;
 }
 
 #mainSearch {
@@ -98,8 +99,6 @@ body {
 	min-width: 700px;
 	margin: 0 auto;
 	padding: 20px;
-	background: rgba(255, 255, 255, 0.6);
-	border: 1px solid rgba(255, 255, 255, 0.65);
 }
 
 #mainSearch .searchInput,
@@ -122,15 +121,177 @@ body {
 #search {
 	margin: 0 auto 20px auto;
 	width: 98%;
+	clear: both;
+	padding-bottom: 50px;
 }
 
 #search .col {
-	width: 49%;
-	margin: 0 auto 0 1.5%;
+	width: 47%;
+	margin: 0 auto 0 2%;
 	display: inline-block;
 	min-height: 200px;
+	float: left;
 }
 
-#search .col:first-child {
-	margin-left: 0;
+
+#search .col:last-child:after {
+	clear: both;
+}
+
+.status {
+	display: block;
+	width: 95%;
+	border: 1px solid #888;
+	margin: 0 auto 20px auto;
+	background: #FFF;
+	position: relative;
+	clear: both;
+	font-family: Verdana;
+}
+
+.status.twitter {
+	border: 0px solid #08A;
+	border-left: 10px solid #08A;
+}
+
+.status.facebook {
+	border: 0px solid #149;
+	border-left: 10px solid #149;
+}
+
+.status .content,
+.status .content .userPicture,
+.status .content .statusInfo {
+	display: inline-block;
+	position: relative;
+}
+
+.status .content {
+	width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-left: 0;
+	position: relative;
+}
+
+.status.twitter .content {
+	border: 1px solid #1AC;
+}
+
+.status.facebook .content {
+	border: 1px solid #149;
+}
+
+.status .content .userPicture {
+	width: 30%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.status .content .userPicture img {
+	width: 100%;
+}
+
+.status .content .statusInfo {
+	vertical-align: middle;
+	width: 68%;
+	margin: 0 0 0 auto;
+	float: right;
+}
+
+.status .content .statusInfo .user {
+	width: 100%;
+	border-bottom: 1px solid #DDD;
+	padding: 3px 0;
+	position: relative;
+}
+
+
+.status .content .statusInfo .user div {
+	display: inline-block;
+}
+
+.status .content .statusInfo .user .fullName {
+	font-size: 18px;
+	width: 55%;
+	vertical-align: middle;
+	word-wrap:break-word;
+}
+
+.status.twitter .content .statusInfo .user .fullName {
+	color: #28A;
+}
+
+.status.facebook .content .statusInfo .user .fullName {
+	color: #227;
+}
+
+.status .content .statusInfo .user .username {
+	width: 40%;
+	padding-right: 7%;
+	font-size: 13px;
+	text-align: right;
+	vertical-align: middle;
+	word-wrap:break-word;
+}
+
+.status.twitter .content .statusInfo .user .username {
+	background: url('../images/twitter-16x16.png') no-repeat center right transparent;
+}
+
+.status.facebook .content .statusInfo .user .username {
+	background: url('../images/facebook-16x16.png') no-repeat center right transparent;
+}
+
+.status .content .statusInfo .message {
+	display: block;
+	width: 96%;
+	padding: 5px 2% 5px 2%;
+	text-align: justify;
+	color: #000;
+	line-height: 20px;
+	font-size: 14px;
+	position: relative;
+	word-wrap:break-word;
+	overflow-x: hidden;
+}
+
+.status .content .statusInfo .date {
+	display: block;
+	width: 96%;
+	padding: 3px 1% 0;
+	color: #666;
+	font-size: 12px;
+	text-align: right;
+}
+
+.clearBoth {
+	clear: both;
+}
+
+.searchData {
+	width: 92%;
+	margin: 0 auto 30px;
+	padding: 10px 0 10px 0;
+	border: 1px solid #888;
+	background: #FFF;
+}
+
+.searchData img {
+	border: 0;
+	margin: 5px auto -5px auto;
+	display: block;
+	width: 20%;
+}
+
+.searchData .query {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 40px;
+	color: #3d6dcc;
+}
+
+.hashtag {
+	color: #3d3dff;
+	font-weight: bold;
 }

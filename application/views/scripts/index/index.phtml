@@ -5,3 +5,26 @@
 
 	?>
 </div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#searchForm').submit(function () {
+        	var query = $('#searchInput').val();
+	        
+	        query = query.replace('#', '%23');
+	        query = query.replace(' ', '+');
+
+        	if (query) {
+
+        		window.location.href = "search/" + query;
+
+        	}
+
+        	return false;
+
+        });
+
+
+    });
+</script>

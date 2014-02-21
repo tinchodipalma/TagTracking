@@ -24,7 +24,8 @@ class SearchController extends Zend_Controller_Action
     	$viewData = array(
     		'title' => $query . " - TagTrack",
     		'copyright' => "TagTrack &copy;",
-    		'searchPlugin' => true
+    		'searchPlugin' => true,
+            'requestedQuery' => $query
         );
 
         $this->view->assign($viewData);

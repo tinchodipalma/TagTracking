@@ -9,7 +9,8 @@
             if (isset($this->searchPlugin) && $this->searchPlugin === true) {
                 $this->headScript()->appendFile('/js/jquery.searchPlugin.js');
             }
-            echo $this->headScript()->appendFile('/js/bootstrap.min.js');
+            $this->headScript()->appendFile('/js/bootstrap.min.js');
+            echo $this->headScript()->appendFile('/js/jquery-ui-1.10.4.custom.min.js');
 
 
             $this->headLink(array(
@@ -17,17 +18,10 @@
                 'href' => '/images/favicon.ico',                
             ))->appendStylesheet('/css/bootstrap.min.css');
             $this->headLink()->appendStylesheet('/css/main.css');
+            $this->headLink()->appendStylesheet('/css/jquery-ui-1.10.4.custom.min.css');
             $this->headLink()->appendStylesheet('//fonts.googleapis.com/css?family=Hammersmith+One');
             echo $this->headLink();
         ?>
-
-        <script>
-            $(document).ready(function () {
-
-                // $('#search').searchSocialData();
-
-            });
-        </script>
 
     </head>
 
