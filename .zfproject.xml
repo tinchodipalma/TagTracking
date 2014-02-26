@@ -28,6 +28,7 @@
         <modelFile modelName="TwitterStatus"/>
         <modelFile modelName="FacebookStatus"/>
         <modelFile modelName="User"/>
+        <modelFile modelName="Media"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>

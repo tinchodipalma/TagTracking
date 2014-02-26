@@ -27,7 +27,7 @@
                     setTimeout(function(){
                             $('#search').getSocialData();
                         },
-                        59000
+                        15000
                     );
 
                 }
@@ -46,6 +46,7 @@
 
         var htmlCol1 = "";
         var htmlCol2 = ""; 
+        var htmlCol3 = ""; 
 
         // json = $.parseJSON(json);
 
@@ -56,9 +57,14 @@
                     if (i == 1) {
                         htmlCol1 += $(this).getView(value);
                         i++;
-                    } else {
-                        htmlCol2 += $(this).getView(value);
-                        i = 1;
+                    } else { 
+                        if (i == 2) {
+                            htmlCol2 += $(this).getView(value);
+                            i++;
+                        } else {
+                            htmlCol3 += $(this).getView(value);
+                            i = 1;
+                        }
                     }
                 }
 
@@ -67,23 +73,31 @@
         );
 
         $('.progressBar').fadeOut(500);
-        $(element).html("<div class='col'>" + htmlCol1 + "</div><div class='col'>" + htmlCol2 + "</div><div class='clearBoth'></div>").fadeIn(1500);
+        $(element).html("<div class='col'>" + htmlCol1 + "</div><div class='col'>" + htmlCol2 + "</div><div class='col'>" + htmlCol3 + "</div><div class='clearBoth'></div>").fadeIn(1500);
 
     };
 
     $.fn.getView = function (json) {
 
-        var htmlDOM = "<div class='status {{SOURCE}}'><div class='content'><div class='userPicture'><img src='{{USERPICTURE}}' alt='{{USERNAME}} photo' /></div><div class='statusInfo'><div class='user'><div class='fullName'>{{USERFULLNAME}}</div><div class='username'>{{USERNAME}}</div></div><div class='date'>{{DATE}}</div><div class='message'>{{MESSAGE}}</div></div></div></div>";
+        var htmlDOM = "<div class='status {{SOURCE}}'><div class='content'>{{MEDIA}}<div class='userPicture'><img src='{{USERPICTURE}}' alt='{{USERNAME}} photo' /></div><div class='statusInfo'><div class='user'><div class='fullName'>{{USERFULLNAME}}</div><div class='username'>{{USERNAME}}</div></div><div class='date'>{{DATE}}</div><div class='message'>{{MESSAGE}}</div></div></div></div>";
 
         var date = new Date(json.date*1000);
 
+        var day = (date.getDate() < 10 ? "0" : "") +  date.getDate();
+        var month = ((date.getMonth()+1) < 10 ? "0" : "") +  (date.getMonth()+1);
         var hours = (date.getHours() < 10 ? "0" : "") +  date.getHours();
         var minutes = (date.getMinutes() < 10 ? "0" : "") +  date.getMinutes();
         var seconds = (date.getSeconds() < 10 ? "0" : "") +  date.getSeconds();
 
-        var dateString = hours + ":" + minutes + ":" + seconds;
+        var dateString = day + "/" + month + "  " + hours + ":" + minutes + ":" + seconds;
 
         var query = window.location.pathname.split('/').pop();
+        
+        var mediaUrl = "";
+
+        if (json.media.url) {
+            mediaUrl = "<div class='statusMedia'><img src='" + json.media.url + "' ></div>";
+        }
 
         htmlDOM = htmlDOM.replace('{{SOURCE}}', json.source.toLowerCase());
         htmlDOM = htmlDOM.replace('{{USERPICTURE}}', json.user.picture);
@@ -94,6 +108,7 @@
         htmlDOM = htmlDOM.replace('{{DATE}}', dateString);
         htmlDOM = htmlDOM.replace(query, "<b>" + query + "</b>");
         htmlDOM = htmlDOM.replace("#<b>" + query + "</b>", "<span class='hashtag'>#" + query + "</span>");
+        htmlDOM = htmlDOM.replace('{{MEDIA}}', mediaUrl);
 
         return htmlDOM;
 

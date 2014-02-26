@@ -126,8 +126,8 @@ body {
 }
 
 #search .col {
-	width: 47%;
-	margin: 0 auto 0 2%;
+	width: 32%;
+	margin: 0 auto 0 0.7%;
 	display: inline-block;
 	min-height: 200px;
 	float: left;
@@ -154,6 +154,11 @@ body {
 	border-left: 10px solid #08A;
 }
 
+.status.googleplus {
+	border: 0px solid #8B5A2B;
+	border-left: 10px solid #8B5A2B;
+}
+
 .status.facebook {
 	border: 0px solid #149;
 	border-left: 10px solid #149;
@@ -177,7 +182,11 @@ body {
 	border: 1px solid #1AC;
 }
 
-.status.facebook .content {
+.status.googleplus .content {
+	border: 1px solid #8B5A2B;
+}
+
+.8B5A2B.facebook .content {
 	border: 1px solid #149;
 }
 
@@ -185,10 +194,27 @@ body {
 	width: 30%;
 	margin: 0 auto;
 	position: relative;
+	height: 150px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.status .content .statusMedia + .userPicture {
+	margin-top: -70px;
 }
 
 .status .content .userPicture img {
-	width: 100%;
+	width: 90%;
+	min-height: 90px;
+	max-height: 150px;
+	margin: 0 auto;
+	vertical-align: bottom;
+	box-shadow: 0 0 20px white;
+	border: 2px solid white;
+}
+
+.status .content .statusMedia + .userPicture img {
+	margin-top: 20px;
 }
 
 .status .content .statusInfo {
@@ -196,6 +222,7 @@ body {
 	width: 68%;
 	margin: 0 0 0 auto;
 	float: right;
+	z-index: 2;
 }
 
 .status .content .statusInfo .user {
@@ -211,7 +238,7 @@ body {
 }
 
 .status .content .statusInfo .user .fullName {
-	font-size: 18px;
+	font-size: 16px;
 	width: 55%;
 	vertical-align: middle;
 	word-wrap:break-word;
@@ -221,14 +248,18 @@ body {
 	color: #28A;
 }
 
+.status.googleplus .content .statusInfo .user .fullName {
+	color: #8B5A2B;
+}
+
 .status.facebook .content .statusInfo .user .fullName {
 	color: #227;
 }
 
 .status .content .statusInfo .user .username {
-	width: 40%;
-	padding-right: 7%;
-	font-size: 13px;
+	width: 39.5%;
+	padding-right: 7.5%;
+	font-size: 12px;
 	text-align: right;
 	vertical-align: middle;
 	word-wrap:break-word;
@@ -238,6 +269,12 @@ body {
 	background: url('../images/twitter-16x16.png') no-repeat center right transparent;
 }
 
+.status.googleplus .content .statusInfo .user .username {
+	min-width: 20px;
+	min-height: 20px;
+	background: url('../images/gplus-16x16.png') no-repeat center right transparent;
+}
+
 .status.facebook .content .statusInfo .user .username {
 	background: url('../images/facebook-16x16.png') no-repeat center right transparent;
 }
@@ -245,8 +282,8 @@ body {
 .status .content .statusInfo .message {
 	display: block;
 	width: 96%;
-	padding: 5px 2% 5px 2%;
-	text-align: justify;
+	padding: 5px 2% 10px 2%;
+	text-align: left;
 	color: #000;
 	line-height: 20px;
 	font-size: 14px;
@@ -264,13 +301,28 @@ body {
 	text-align: right;
 }
 
+.status .statusMedia {
+	width: 100%;
+	margin: 0;
+	border-bottom: 3px solid #999;
+	max-height: 300px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+
+.status .statusMedia img {
+	width: 100%;
+	vertical-align: middle;
+}
+
 .clearBoth {
 	clear: both;
 }
 
 .searchData {
-	width: 92%;
-	margin: 0 auto 30px;
+	width: 94%;
+	margin: 0 0 30px 2.3%;
 	padding: 10px 0 10px 0;
 	border: 1px solid #888;
 	background: #FFF;
